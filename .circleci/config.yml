@@ -13,7 +13,7 @@ jobs:
            command: git clone https://github.com/irods/irods.git
        - run:
            name: Clone iRODS dependencies repository
-           command: https://github.com/irods/externals.git
+           command: git clone https://github.com/irods/externals.git
        - run: 
            name: Install prerequisites for dependencies
            working_directory: ~/project/externals
