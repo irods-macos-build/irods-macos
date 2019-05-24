@@ -22,9 +22,8 @@ jobs:
            working_directory: ~/project/externals
            command: ./install_prerequisites.py
        - run:
-           name: Build autoconf
-           working_directory: ~/project/externals
-           command: ./build.py -v autoconf
+           name: Install autoconf
+           command: brew install autoconf
        - run:
            name: Build avro
            working_directory: ~/project/externals
