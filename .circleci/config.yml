@@ -22,85 +22,10 @@ jobs:
            working_directory: ~/project/externals
            command: ./install_prerequisites.py
        - run:
-           name: Install autoconf
-           command: brew install autoconf
-       - run:
-           name: Build cmake
+           name: Adjust externals makefile to send all output to stdout
            working_directory: ~/project/externals
-           command: ./build.py -v cmake
+           command: sed -i 's/ > .*\.log 2>\&1$//' Makefile
        - run:
-           name: Build avro
+           name: Build externals
            working_directory: ~/project/externals
-           command: ./build.py -v avro
-       - run:
-           name: Build aws-sdk-cpp
-           working_directory: ~/project/externals
-           command: ./build.py -v aws-sdk-cpp
-       - run:
-           name: Build boost
-           working_directory: ~/project/externals
-           command: ./build.py -v boost
-       - run:
-           name: Build catch2
-           working_directory: ~/project/externals
-           command: ./build.py -v catch2
-       - run:
-           name: Build clang
-           working_directory: ~/project/externals
-           command: ./build.py -v clang
-       - run:
-           name: Build clang-runtime
-           working_directory: ~/project/externals
-           command: ./build.py -v clang-runtime
-       - run:
-           name: Build cppzmq
-           working_directory: ~/project/externals
-           command: ./build.py -v cppzmq
-       - run:
-           name: Build cpython
-           working_directory: ~/project/externals
-           command: ./build.py -v cpython
-       - run:
-           name: Build imagemagick
-           working_directory: ~/project/externals
-           command: ./build.py -v imagemagick
-       - run:
-           name: Build jansson
-           working_directory: ~/project/externals
-           command: ./build.py -v jansson
-       - run:
-           name: Build json
-           working_directory: ~/project/externals
-           command: ./build.py -v json
-       - run:
-           name: Build libarchive
-           working_directory: ~/project/externals
-           command: ./build.py -v libarchive
-       - run:
-           name: Build libs3
-           working_directory: ~/project/externals
-           command: ./build.py -v libs3
-       - run:
-           name: Build qpid
-           working_directory: ~/project/externals
-           command: ./build.py -v qpid
-       - run:
-           name: Build qpid-proton
-           working_directory: ~/project/externals
-           command: ./build.py -v qpid-proton
-       - run:
-           name: Build qpid-with-proton
-           working_directory: ~/project/externals
-           command: ./build.py -v qpid-with-proton
-       - run:
-           name: Build redis
-           working_directory: ~/project/externals
-           command: ./build.py -v redis
-       - run:
-           name: Build spdlog
-           working_directory: ~/project/externals
-           command: ./build.py -v spdlog
-       - run:
-           name: Build zeromq4-1
-           working_directory: ~/project/externals
-           command: ./build.py -v zeromq4-1
+           command: make
