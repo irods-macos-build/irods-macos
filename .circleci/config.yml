@@ -24,6 +24,10 @@ jobs:
        - run:
            name: Install autoconf
            command: brew install autoconf
+      - run:
+           name: Build cmake
+           working_directory: ~/project/externals
+           command: ./build.py -v cmake
        - run:
            name: Build avro
            working_directory: ~/project/externals
@@ -48,10 +52,6 @@ jobs:
            name: Build clang-runtime
            working_directory: ~/project/externals
            command: ./build.py -v clang-runtime
-       - run:
-           name: Build cmake
-           working_directory: ~/project/externals
-           command: ./build.py -v cmake
        - run:
            name: Build cppzmq
            working_directory: ~/project/externals
