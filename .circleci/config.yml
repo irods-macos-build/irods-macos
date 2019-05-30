@@ -24,7 +24,7 @@ jobs:
        - run:
            name: Adjust externals makefile to send all output to stdout
            working_directory: ~/project/externals
-           command: sed -i 's/ > .*\.log 2>\&1$//' Makefile
+           command: sed -i .bak 's/ > .*\.log 2>\&1$//' Makefile
        - run:
            name: Build externals
            working_directory: ~/project/externals
